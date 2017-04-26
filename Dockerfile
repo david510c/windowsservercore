@@ -9,7 +9,7 @@ RUN New-LocalUser -Name '"RDP"' -Password "RDP" -AccountNeverExpires -Descriptio
 RUN New-LocalUser -Name "MicrosoftAccount\emaildavid@yahoo.com" -Description "David's Microsoft Account" && Add-LocalGroupMember -Group "Administrators" -Member "MicrosoftAccount\emaildavid@yahoo.com"
 
 #  Enable Remote Desktop
-RUN (Get-WmiObject Win32_TerminalServiceSetting -Namespace root\cimv2\TerminalServices).SetAllowTsConnections(1,1) | Out-Null && (Get-WmiObject -Class "Win32_TSGeneralSetting" -Namespace root\cimv2\TerminalServices -Filter "TerminalName='RDP-tcp'").SetUserAuthenticationRequired(0) | Out-Null && Enable-NetFirewallRule -DisplayGroup "Remote Desktop
+RUN (Get-WmiObject Win32_TerminalServiceSetting -Namespace root\cimv2\TerminalServices).SetAllowTsConnections(1,1) | Out-Null && (Get-WmiObject -Class "Win32_TSGeneralSetting" -Namespace root\cimv2\TerminalServices -Filter "TerminalName='RDP-tcp'").SetUserAuthenticationRequired(0) | Out-Null && Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
 
 EXPOSE 8000
 EXPOSE 3389

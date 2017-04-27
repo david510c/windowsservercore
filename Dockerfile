@@ -7,7 +7,7 @@ SHELL   ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPr
 RUN     New-LocalUser -Name '"RDP"' -NoPassword -AccountNeverExpires -Description '"RDP User"' -FullName '"RDP"' -UserMayNotChangePassword
 RUN     Add-LocalGroupMember -Group "Administrators" -Member "RDP"
 
-RUN     New-LocalUser -Name "MicrosoftAccount\emaildavid@yahoo.com" -Description "David's Microsoft Account"
+RUN     New-LocalUser -Name '"MicrosoftAccount\emaildavid@yahoo.com"' -Description '"David's Microsoft Account"' -FullName '"David Chen"'
 RUN     Add-LocalGroupMember -Group "Administrators" -Member "MicrosoftAccount\emaildavid@yahoo.com"
 
 #  Enable Remote Desktop

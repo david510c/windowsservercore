@@ -4,7 +4,7 @@ MAINTAINER david@davidchen.blog
 
 SHELL   ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
-RUN     New-LocalUser -Name '"RDP"' -NoPassword -AccountNeverExpires -Description '"RDP User"' -FullName '"RDP"' -UserMayNotChangePassword
+RUN     New-LocalUser -Name '"RDP"' -Password '"RDP"' -AccountNeverExpires -Description '"RDP User"' -FullName '"RDP"' -UserMayNotChangePassword
 RUN     Add-LocalGroupMember -Group "Administrators" -Member "RDP"
 
 RUN     New-LocalUser -Name '"MicrosoftAccount\emaildavid@yahoo.com"' -Description '"David's Microsoft Account"' -FullName '"David Chen"'
